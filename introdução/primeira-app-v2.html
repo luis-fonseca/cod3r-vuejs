@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<!-- Inserir o script do framework VueJS no começo do documento -->
+	<script src="../node_modules/vue/dist/vue.js"></script>
+</head>
+
+<body>
+	<!-- O elemento que será controlado pelo VueJS -->
+	<div id="app">
+    <!-- o VueJS utiliza o padrão double mustache para fazer a 
+         interpolação (substituição) de dados. Os dados podem 
+		 estar em ‘data’ ou ‘methods’, por exemplo 
+	-->
+		{{ titulo }}
+
+		<!-- A diretiva v-on:nome-evento é um atributo atributo
+			 personalizado do VueJS. Não é necessário, no evento
+			 especificar, quando único, a varíavel $event, pois
+			 ela é passada como argumento por padrão.
+		-->
+		<input type="text" v-on:input="alterarTitulo">
+	</div>
+
+	<script>
+    /**
+     * A instância do VueJS. É necessário usar
+     * a palavra chave 'new' para iniciar a função construtora Vue().
+     * A função deve ser iniciada com um objeto e nele serão especificados
+     * inicialmente o elemento a ser controlado e os dados. No atributo
+     * el é especificado o elemento que pode ser um ID ou classe. Em
+     * data são especificados os dados da aplicação.
+    */
+		new Vue({
+			el: '#app',
+			// Permite adicionar dados utilizados pela aplicação.
+			data: {
+				titulo: "Bem vindo ao VueJS 2!"
+			},
+			// Permite adicionar métodos utilizados pela aplicação.
+			methods: {
+				alterarTitulo: function(event) {
+					// por padrão, no JavaScript, 'this' não faz referência a
+					// a variável o 'título' porém, o Vue garante a atribuição
+					// correta do valor.
+
+					// event é um objeto padrão do JS.
+					this.titulo = event.target.value;
+				}
+			}
+		})
+	</script>
+</body>
+
+</html>
