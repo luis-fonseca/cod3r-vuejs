@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<!-- Inserir o script do framework VueJS no começo do documento -->
+	<script src="node_modules/vue/dist/vue.js"></script>
+</head>
+
+<body>
+	<!-- O elemento que será controlado pelo VueJS -->
+	<div id="app">
+    <!-- o VueJS utiliza o padrão double mustache para fazer a 
+         interpolação (substituição) de dados. Os dados podem 
+         estar em ‘data’ ou ‘methods’, por exemplo -->
+		{{ titulo }}
+	</div>
+
+	<script>
+    /**
+     * A instância do VueJS. É necessário usar
+     * a palavra chave 'new' para iniciar a função construtora Vue().
+     * A função deve ser iniciada com um objeto e nele serão especificados
+     * inicialmente o elemento a ser controlado e os dados. No atributo
+     * el é especificado o elemento que pode ser um ID ou classe. Em
+     * data são especificados os dados da aplicação.
+    */
+		new Vue({
+			el: '#app',
+			data: {
+				titulo: "Bem vindo ao VueJS 2!"
+			}
+		})
+	</script>
+</body>
+
+</html>
